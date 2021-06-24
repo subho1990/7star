@@ -1466,6 +1466,7 @@ class LP_User_CURD extends LP_Object_Data_CURD implements LP_Interface_CURD {
 					SELECT SQL_CALC_FOUND_ROWS ID
 					FROM {$wpdb->posts} c
 					{$where}
+					ORDER BY ID DESC
 					LIMIT {$offset}, {$limit}
 				";
 
@@ -1636,6 +1637,17 @@ class LP_User_CURD extends LP_Object_Data_CURD implements LP_Interface_CURD {
 									$having .= $wpdb->prepare( ' AND ( ui.graduation = %s )', 'failed' );
 								}
 							}
+
+							break;
+						case 'in-progress':
+							$where .= $wpdb->prepare(
+								' AND ui.status IN( %s )',
+								array(
+									'enrolled',
+								)
+							);
+
+							$having .= $wpdb->prepare( ' AND ui.graduation = %s', 'in-progress' );
 
 							break;
 						case 'not-enrolled':

@@ -804,10 +804,16 @@ var Buttons = /*#__PURE__*/function (_Component) {
         styles = null;
       }
 
+      var navPositionClass = ' fixed';
+
+      if (lpQuizSettings.navigationPosition == 'no') {
+        navPositionClass = ' nav-center';
+      }
+
       return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
         className: classNames.join(' ')
       }, /*#__PURE__*/React.createElement("div", {
-        className: "button-left" + (status === 'started' || isReviewing ? ' fixed' : ''),
+        className: "button-left" + (status === 'started' || isReviewing ? navPositionClass : ''),
         style: styles
       }, (status === 'completed' && canRetry || -1 !== ['', 'viewed'].indexOf(status)) && !isReviewing && /*#__PURE__*/React.createElement("button", {
         className: "lp-button start",
@@ -1539,7 +1545,6 @@ var Question = /*#__PURE__*/function (_Component) {
       var _this$props2 = _this.props,
           question = _this$props2.question,
           editPermalink = _this$props2.editPermalink;
-      console.log(123123123);
       return editPermalink ? editPermalink.replace(/post=(.*[0-9])/, "post=".concat(question.id)) : '';
     });
 

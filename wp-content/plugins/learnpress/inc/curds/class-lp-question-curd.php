@@ -192,6 +192,7 @@ if ( ! class_exists( 'LP_Question_CURD' ) ) {
 		 *
 		 * @param $question_id     | origin question
 		 * @param $new_question_id | new question
+		 * @TODO tungnx: check duplicate question typ fill_in_blank - must clone row in learnpress_question_answermeta
 		 */
 		public function duplicate_answer( $question_id, $new_question_id ) {
 			global $wpdb;
@@ -210,7 +211,7 @@ if ( ! class_exists( 'LP_Question_CURD' ) ) {
 							'is_true'     => ! empty( $option->is_true ) ? $option->is_true : '',
 							'order'       => $option->order,
 						),
-						array( '%d', '%s', '%s' )
+						array( '%d', '%s', '%s', '%s', '%s' )
 					);
 				}
 			}

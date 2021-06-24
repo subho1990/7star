@@ -67,7 +67,7 @@ class LP_Template_Profile extends LP_Abstract_Template {
 			'total_users'       => learn_press_count_instructor_users( $user->get_id() ),
 		);
 
-		learn_press_get_template( 'profile/dashboard/general-statistic', compact( 'statistic' ) );
+		learn_press_get_template( 'profile/tabs/courses/general-statistic', compact( 'statistic' ) );
 	}
 
 	public function dashboard_featured_courses() {
@@ -192,7 +192,7 @@ class LP_Template_Profile extends LP_Abstract_Template {
 			return;
 		}
 
-		if ( 'yes' !== LP()->settings()->get( 'enable_register_profile' ) ) {
+		if ( 'yes' !== LP()->settings()->get( 'enable_register_profile' ) || ! get_option( 'users_can_register' ) ) {
 			return;
 		}
 

@@ -101,9 +101,8 @@ class LP_Course_DB extends LP_Database {
 			ON items.section_id = sections.section_id
 			AND sections.section_course_id = %d
 			",
-				$course_id
+				$course_id,0
 			);
-
 			$first_item_id = (int) $this->wpdb->get_var( $query );
 
 			// Set cache
