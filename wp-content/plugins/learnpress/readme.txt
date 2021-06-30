@@ -5,7 +5,7 @@ Tags: elearning, education, course, lms, learning management system
 Requires at least: 5.6
 Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 4.0.9
+Stable tag: 4.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -197,10 +197,16 @@ https://www.transifex.com/projects/p/learnpress/
 
 == Changelog ==
 
+= 4.1.0 =
+~ Added: feature "Allow repurchase option". Manager can set fixed: Reset/Keep course progress of course or allow student choice.
+~ Fixed: show incorrect "Active Courses" on page profile.
+~ Fixed: show fake student.
+~ Fixed: duplicate label on form Register custom fields.
+
 = 4.0.9 =
 ~ Added: option enable sticky navigation pagination when user answer question on quiz.
 ~ Fixed: set again current item when manager remove item current when edit course.
-~ Modified: page profile - load ajax call API, show more info...
+~ Modified: page profile - load ajax call API, show more info.
 ~ Fixed: can't upgrade DB from 3 to 4 because user translate menu "LearnPress".
 ~ Modified: Navigation on page quiz - change icon next, previous to text.
 ~ Fixed: function "duplicate course" not duplicate "answer option"
