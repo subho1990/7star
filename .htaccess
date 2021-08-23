@@ -4,11 +4,11 @@
 RewriteEngine on
 CacheLookup on
 RewriteRule .* - [E=Cache-Control:no-autoflush]
-RewriteRule \.object-cache\.ini - [F,L]
+RewriteRule \.litespeed_conf\.dat - [F,L]
 
 ### marker MOBILE start ###
 RewriteCond %{HTTP_USER_AGENT} Mobile|Android|Silk/|Kindle|BlackBerry|Opera\ Mini|Opera\ Mobi [NC]
-RewriteRule .* - [E=Cache-Control:vary=ismobile]
+RewriteRule .* - [E=Cache-Control:vary=%{ENV:LSCACHE_VARY_VALUE}+ismobile]
 ### marker MOBILE end ###
 
 ### marker CACHE RESOURCE start ###
